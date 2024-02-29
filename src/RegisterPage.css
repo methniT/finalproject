@@ -1,0 +1,86 @@
+/* App Container */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh; /* Set to full viewport height */
+  background-image: url('images/bg4.jpg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* No repeating of the image */
+  color: rgb(0, 0, 0); /* Text color for better visibility */
+  font-family: 'Roboto', sans-serif; /* Choose a font */
+}
+
+/* Content Box */
+.content {
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(110, 110, 110, 0.5); /* Semi-transparent white background */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(211, 211, 211, 0.3); /* Box shadow for depth */
+}
+
+/* Description Text */
+p {
+  margin-bottom: 20px;
+  color: #000000; /* Dark gray text color */
+  font-family: 'Arial', sans-serif; /* Choose a font */
+  font-weight: bold;
+}
+
+/* User Info Section */
+.user-info {
+  margin-top: 20px;
+}
+
+.user-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Box shadow for user image */
+}
+
+.user-info h3 {
+  margin: 0;
+  color: #70004f; /* Purple color for user name */
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #555; /* Medium gray text color */
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #70004f; /* Purple background color for buttons */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: 'Arial', bold; /* Choose a font */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {
+  background-color: #a53275; /* Darker purple on hover */
+}
+
+/* Google Sign-In Container */
+#signInDiv {
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}

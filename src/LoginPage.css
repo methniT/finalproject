@@ -1,0 +1,60 @@
+.loginpage {
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(30px);
+  color: #6d3737;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.loginpage h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.loginpage .input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.register-button-container {
+  display: flex;
+  justify-content: center;
+}
+  
+.register-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #218838;
+}
+
+label {
+  margin-bottom: 20px;
+  color: #000000; /* Dark gray text color */
+  font-family: 'Arial', sans-serif; /* Choose a font */
+  font-weight: bold;
+  text-align: left;
+
+}
