@@ -3,16 +3,13 @@ import { jwtDecode } from "jwt-decode";
 import './App.css';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
-import ForgotPasswordPage from './ForgotPasswordPage';
-import ResetPasswordPage from './ResetPasswordPage';
-
+import NavBar from './NavBar';
 
 function App() {
   const [user, setUser] = useState(null);
   const [showGoogleOptions, setShowGoogleOptions] = useState(false);
   const [showRegisterPage, setShowRegisterPage] = useState(false);
   const [showLoginPage, setShowLoginPage] = useState(false);
-  
 
   useEffect(() => {
     const loadGoogleSDK = () => {
@@ -53,17 +50,13 @@ function App() {
   }
 
   function handleRegister(user) {
-    // Here you can handle the registration logic
     console.log("Registering user:", user);
-    // For now, let's just set the user state to simulate registration
     setUser(user);
     setShowRegisterPage(false);
   }
 
   function handleLogin(user) {
-    // Here you can handle the login logic
     console.log("Logging in user:", user);
-    // For now, let's just set the user state to simulate login
     setUser(user);
     setShowLoginPage(false);
   }
@@ -75,14 +68,15 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <div className="content">
-        <h1>BLISSMED</h1>
-        <h3>Shaping the Future : Prediction at Your Fingertips</h3><br></br>
+        <h1>Welcome to BLISSMED</h1>
+        <h3>Shaping the Future : Prediction at Your Fingertips</h3>
 
         {/* Conditional rendering based on user state */}
         {!user && !showRegisterPage && !showLoginPage && (
-          <div>
-            <p>Sign in with your google account </p>
+          <div className="auth-options">
+            <p>Sign in with your Google account</p>
             {!showGoogleOptions && (
               <button onClick={handleSignInClick} className="google-signin">Sign in with Google</button>
             )}
@@ -91,23 +85,20 @@ function App() {
             )}
             <h4>or register to get started</h4>
             <button onClick={() => setShowRegisterPage(true)} className="register">Sign up</button>
-            <h4>Already have an account,</h4>
+            <h4>Already have an account?</h4>
             <button onClick={() => setShowLoginPage(true)} className="login">Sign in</button>
           </div>
         )}
 
         {user && (
-          <div>
-            <div className="user-info">
-              <img src={user.picture} alt="User" />
-              <h3>{user.name}</h3>
-              <p>Email Address: {user.email}</p>
-            </div>
-            <button onClick={handleSignOut} className="signout">Sign out</button><br></br>
-            <button onClick={handleSignOut} className="signout">Dashboard</button>
+          <div className="user-info">
+            <img src={user.picture} alt="User" />
+            <h3>Hello, {user.name}</h3>
+            <p>Email Address: {user.email}</p>
+            <button onClick={handleSignOut} className="signout">Sign out</button>
+            <button onClick={handleSignOut} className="dashboard">Dashboard</button>
           </div>
         )}
-
 
         {showRegisterPage && (
           <RegisterPage onRegister={handleRegister} onBack={handleBack} />

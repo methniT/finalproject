@@ -3,7 +3,7 @@ import React from 'react';
 
 function BreastCancerInfoPage() {
   return (
-    <div className="breast-cancer-info">
+    <div id="BreastCancerInfoPage" className="breast-cancer-info">
       <h2>About Breast Cancer</h2>
       <p>
         Breast cancer is a type of cancer that forms in the cells of the breasts. It can occur in both men and women,

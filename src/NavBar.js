@@ -1,18 +1,34 @@
-// NavBar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({ handleNavClick }) {
+  const handleClick = (sectionId) => {
+    handleNavClick(sectionId);
+  };
+
   return (
     <nav className="navbar">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <a onClick={() => handleClick("home")} href="#home">Home</a>
         </li>
         <li>
-          <Link to="/breast-cancer-info">Breast Cancer Info</Link>
+          <a onClick={() => handleClick("about")} href="#about">About</a>
         </li>
-        {/* Add more links as needed */}
+        <li>
+          <a onClick={() => handleClick("prevention")} href="#prevention">Predict</a>
+        </li>
+        <li>
+          <a onClick={() => handleClick("breastcancerinfo")} href="#breastcancerinfo">About Cancer</a>
+        </li>
+        <li>
+          <a onClick={() => handleClick("support")} href="#support">Dr Channelling</a>
+        </li>
+        <li>
+          <a onClick={() => handleClick("resources")} href="#resources">Health Journal</a>
+        </li>
+        <li>
+          <a onClick={() => handleClick("contact")} href="#contact">Contact Us</a>
+        </li>
       </ul>
     </nav>
   );
