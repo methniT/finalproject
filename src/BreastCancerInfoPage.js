@@ -1,36 +1,52 @@
 // BreastCancerInfoPage.js
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './BreastCancerInfoPage.css';
 
-function BreastCancerInfoPage() {
+
+const BreastCancerInfoPage = () => {
   return (
     <div id="BreastCancerInfoPage" className="breast-cancer-info">
-      <h2>About Breast Cancer</h2>
-      <p>
-        Breast cancer is a type of cancer that forms in the cells of the breasts. It can occur in both men and women,
-        but it is far more common in women.
-      </p>
-      <p>
-        The exact cause of breast cancer is not known, but certain risk factors such as age, family history, and genetic
-        mutations can increase the likelihood of developing the disease.
-      </p>
-      <p>
-        Symptoms of breast cancer may include a lump in the breast, changes in breast size or shape, skin dimpling,
-        nipple inversion, or nipple discharge.
-      </p>
-      <p>
-        Early detection through regular screening tests such as mammograms can greatly improve the chances of successful
-        treatment.
-      </p>
-      <p>
-        Treatment for breast cancer may involve surgery, radiation therapy, chemotherapy, hormone therapy, or a
-        combination of these.
-      </p>
-      <p>
-        It is important for individuals to be aware of the signs and symptoms of breast cancer and to seek medical
-        attention if any abnormalities are noticed.
-      </p>
+      <h1 style={{ textAlign: 'center' }}>About Breast Cancer </h1><br></br>
+      <div style={{ textAlign: 'justify' }}>
+        <p>
+          Breast cancer is a type of cancer that develops in the cells of the breasts. While it can affect both men and women,
+          it is far more prevalent in women.
+        </p>
+        <h3>Causes and Risk Factors</h3>
+        <p>
+          The exact cause of breast cancer is not fully understood, but several risk factors can increase the likelihood of developing the disease. These include
+        </p>
+        <ul>
+          <li>Age - The risk of breast cancer increases with age.</li>
+          <li>Family history - Individuals with close relatives who have had breast cancer are at higher risk.</li>
+          <li>Genetic mutations - Certain genetic mutations, such as BRCA1 and BRCA2, can increase susceptibility.</li>
+          <li>Hormonal factors - Hormonal changes, such as early menstruation, late menopause, or hormone replacement therapy, may contribute.</li>
+          <li>Lifestyle factors - Obesity, alcohol consumption, and lack of physical activity can also influence risk.</li>
+        </ul>
+        <h3>Symptoms</h3>
+        <p>
+          Symptoms of breast cancer may include
+        </p>
+        <ul>
+          <li>Lump in the breast - A hard, painless lump or mass.</li>
+          <li>Changes in breast size or shape - Dimpling, puckering, or changes in contour.</li>
+          <li>Skin changes - Redness, swelling, or skin irritation.</li>
+          <li>Nipple abnormalities - Inversion, discharge, or changes in appearance.</li>
+        </ul>
+        <h3>Prevention</h3>
+        <p>
+          While not all cases of breast cancer can be prevented, there are steps individuals can take to reduce their risk
+        </p>
+        <ul>
+          <li>Healthy lifestyle - Maintaining a healthy weight, exercising regularly, and limiting alcohol consumption.</li>
+          <li>Breastfeeding - Breastfeeding may lower the risk of breast cancer.</li>
+          <li>Regular screening - Undergoing regular mammograms and clinical breast exams for early detection.</li>
+        </ul>
+        <Link to="/NextPage">Next Page</Link> {/* Use Link to navigate to the next page */}
+      </div>
     </div>
   );
-}
+};
 
 export default BreastCancerInfoPage;

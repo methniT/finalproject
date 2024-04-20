@@ -1,0 +1,43 @@
+/* App Container */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh; /* Set to full viewport height */
+  background-image: url('images/bg4.jpg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* No repeating of the image */
+  color: rgb(0, 0, 0); /* Text color for better visibility */
+  font-family: 'Roboto', sans-serif; /* Choose a font */
+}
+
+/* Content Box */
+/* Content Box */
+.content {
+  max-width: 1100px;
+  padding: 20px;
+  background: rgba(110, 110, 110, 0.5); /* Semi-transparent white background */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(211, 211, 211, 0.3); /* Box shadow for depth */
+  display: flex; /* Add display flex */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Description Text */
+p {
+  margin-bottom: 20px;
+  color: #000000; /* Dark gray text color */
+  font-family: 'Arial', sans-serif; /* Choose a font */
+  font-weight: bold;
+  text-align: center; /* Center text within paragraphs */
+}
+
+
+
+
