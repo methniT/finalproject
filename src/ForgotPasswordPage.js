@@ -1,36 +1,46 @@
-// ForgotPasswordPage.js
+// ForgotPassword.js
 import React, { useState } from 'react';
+import Axios from 'axios';
 
-function ForgotPasswordPage({ onResetPassword }) {
+function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
-  const handleForgotPassword = () => {
-    // Here you can perform the logic to handle the "Forgot Password" request
-    console.log('Forgot Password for email:', email);
-    // For this example, we'll just simulate sending a reset link
-    const resetLink = `https://yourwebsite.com/reset-password?email=${email}`;
-    onResetPassword(resetLink);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await Axios.post("http://localhost:3001/forgot-password", {
+        email: email,
+      });
+      setMessage(response.data.message);
+      setError('');
+    } catch (error) {
+      console.error('Error sending password reset email:', error);
+      setMessage('');
+      setError('An error occurred. Please try again later.');
+    }
   };
 
   return (
-    <div className="forgot-password-page">
+    <div className="forgot-password">
       <h2>Forgot Password</h2>
-      <p>Please enter your email address below to reset your password.</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email</label>
+          <label htmlFor="email">Email       </label>
           <input
+            id="email"
             type="email"
+            placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
             required
           />
-        </div>
-        <div className="buttons">
-          <button type="button" onClick={handleForgotPassword}>Submit</button>
-        </div>
+        </div><br></br>
+        <button type="submit">Submit</button>
       </form>
+      {message && <p className="success-message">{message}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

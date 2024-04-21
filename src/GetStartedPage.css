@@ -1,32 +1,129 @@
-.get-started-box {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent white background */
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-  }
-  
-  .google-sign-in {
-    margin-bottom: 20px;
-  }
-  
-  .register-button-container {
-    display: flex;
-    justify-content: center;
-  }
-    
-  .register-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .register-button:hover {
-    background-color: #218838;
-  }
-  
+/* GetStartedPage.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh; /* Set to full viewport height */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* No repeating of the image */
+  color: rgb(0, 0, 0); /* Text color for better visibility */
+  font-family: 'Roboto', sans-serif; /* Choose a font */
+}
+
+.content {
+  max-width: 1000px;
+  padding: 20px;
+  background: rgba(110, 110, 110, 0.5); /* Semi-transparent white background */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(211, 211, 211, 0.3); /* Box shadow for depth */
+}
+/* Description Text */
+p {
+  margin-bottom: 20px;
+  color: #000000; /* Dark gray text color */
+  font-family: 'Arial', sans-serif; /* Choose a font */
+  font-weight: bold;
+}
+
+
+.h1 {
+  color: #70004f; /* Text color for better visibility */
+  font-family: 'Roboto', sans-serif; /* Choose a font */
+
+}
+/* User Info Section */
+.user-info {
+  margin-top: 20px;
+}
+
+.user-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Box shadow for user image */
+}
+
+.user-info h3 {
+  margin: 0;
+  color: #70004f; /* Purple color for user name */
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #555; /* Medium gray text color */
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #70004f; /* Purple background color for buttons */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: 'Arial', bold; /* Choose a font */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {
+  background-color: #a53275; /* Darker purple on hover */
+}
+
+/* Google Sign-In Container */
+#signInDiv {
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  background-color: #70004f;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 80px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
