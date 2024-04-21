@@ -24,25 +24,6 @@ const BreastCancerInfoPage = () => {
           <li>Hormonal factors - Hormonal changes, such as early menstruation, late menopause, or hormone replacement therapy, may contribute.</li>
           <li>Lifestyle factors - Obesity, alcohol consumption, and lack of physical activity can also influence risk.</li>
         </ul>
-        <h3>Symptoms</h3>
-        <p>
-          Symptoms of breast cancer may include
-        </p>
-        <ul>
-          <li>Lump in the breast - A hard, painless lump or mass.</li>
-          <li>Changes in breast size or shape - Dimpling, puckering, or changes in contour.</li>
-          <li>Skin changes - Redness, swelling, or skin irritation.</li>
-          <li>Nipple abnormalities - Inversion, discharge, or changes in appearance.</li>
-        </ul>
-        <h3>Prevention</h3>
-        <p>
-          While not all cases of breast cancer can be prevented, there are steps individuals can take to reduce their risk
-        </p>
-        <ul>
-          <li>Healthy lifestyle - Maintaining a healthy weight, exercising regularly, and limiting alcohol consumption.</li>
-          <li>Breastfeeding - Breastfeeding may lower the risk of breast cancer.</li>
-          <li>Regular screening - Undergoing regular mammograms and clinical breast exams for early detection.</li>
-        </ul>
         <Link to="/NextPage">Next Page</Link> {/* Use Link to navigate to the next page */}
       </div>
     </div>

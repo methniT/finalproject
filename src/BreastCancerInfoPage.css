@@ -6,7 +6,6 @@
     align-items: center;
     padding: 20px;
     height: 100vh; /* Set to full viewport height */
-    background-image: url('images/bg4.jpg'); /* Path to your background image */
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* No repeating of the image */
