@@ -1,37 +1,35 @@
-import React from 'react';
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import './NavBar.css'; // Import the CSS file
 
-function NavBar({ handleNavClick }) {
-  const handleClick = (sectionId) => {
-    handleNavClick(sectionId);
-  };
 
+export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar"> {/* Update class name to "navbar" */}
+      <Link to="/" className="site-title">
+        BLISSMED
+      </Link>
       <ul>
-        <li>
-          <a onClick={() => handleClick("home")} href="#home">Home</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("about")} href="#about">About</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("prevention")} href="#prevention">Predict</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("breastcancerinfo")} href="#breastcancerinfo">About Cancer</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("support")} href="#support">Dr Channelling</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("resources")} href="#resources">Health Journal</a>
-        </li>
-        <li>
-          <a onClick={() => handleClick("contact")} href="#contact">Contact Us</a>
-        </li>
+        <CustomLink to="/GetStartedPage">Home</CustomLink>
+        <CustomLink to="/about">About Us</CustomLink>
+        <CustomLink to="/prediction">Prediction</CustomLink>
+        <CustomLink to="/BreastCancerInfoPage">Prevention of Breast Cancer </CustomLink>
+        <CustomLink to="/healthjournal">Health journal</CustomLink>
+        <CustomLink to="/contact">Contact Us</CustomLink>
       </ul>
     </nav>
-  );
+  )
 }
 
-export default NavBar;
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
+  )
+}
+
