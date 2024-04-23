@@ -41,7 +41,7 @@ function ResetPassword() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+        </div><br></br>
         <div className="form-group">
           <input
             type="password"
@@ -50,8 +50,8 @@ function ResetPassword() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </div>
-        <button type="submit">Reset Password</button>
+        </div><br></br>
+<button type="submit" className="reset-password-button">Reset Password</button>
       </form>
       {message && <p>{message}</p>}
     </div>

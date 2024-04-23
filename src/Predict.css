@@ -1,0 +1,69 @@
+
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #000000; /* Blue color */
+    margin-bottom: 20px; /* Add some space below the heading */
+  }
+
+  
+  /* Description Text */
+  p {
+    margin-top: 20px; /* Adjust margin */
+    margin-bottom: 20px; /* Adjust margin */
+    color: #000000; /* Dark gray text color */
+    font-family: 'Arial', sans-serif; /* Choose a font */
+    font-weight: bold; /* Bold text */
+  }
+  
+
+  
+  /* Buttons */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #70004f; /* Purple background color for buttons */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: 'Arial', bold; /* Choose a font */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  button:hover {
+    background-color: #a53275; /* Darker purple on hover */
+  }
+  
+  .result {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  
+  
+  .navbar h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin-right: 80px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+  }
+  
