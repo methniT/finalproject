@@ -14,6 +14,8 @@ import ForgotPasswordPage from "./ForgotPasswordPage";
 import ResetPassword from "./ResetPassword";
 import { Route, Routes } from "react-router-dom";
 
+
+
 function App() {
   return (
     <div className="App">
@@ -31,7 +33,6 @@ function App() {
           <Route path="/healthjournal" element={<HealthJournal />} />
           <Route path="/NextPage" element={<NextPage />} />
           <Route path="/NextPage2" element={<NextPage2 />} />
-          <Route path="/healthjournal" element={<HealthJournal />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         </div> 

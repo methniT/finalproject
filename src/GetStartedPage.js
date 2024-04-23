@@ -11,18 +11,18 @@ import ResetPassword from "./ResetPassword";
 import NextPage from './NextPage';
 
 
+
 function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
   const [user, setUser] = useState(null);
   const [showGoogleOptions, setShowGoogleOptions] = useState(false);
   const [showRegisterPage, setShowRegisterPage] = useState(false);
   const [showLoginPage, setShowLoginPage] = useState(false);
-  const [showNextPage, setShowNextPage] = useState(false); // Added state variable
-  const [showHealthJournal, setShowHealthJournal] = useState(false); // Added state variable
-  const [showPredict, setShowPredict] = useState(false); // Added state variable
-  const [showForgotPasswordPage, setShowForgotPasswordPage] = useState(false); // Added state variable
-  const [showResetPassword, setShowResetPassword] = useState(false); // Added state variable
-  const [showNextPage2, setShowNextPage2] = useState(false); // Define showNextPage2 state variable
-
+  const [showNextPage, setShowNextPage] = useState(false);
+  const [showHealthJournal, setShowHealthJournal] = useState(false);
+  const [showPredict, setShowPredict] = useState(false);
+  const [showForgotPasswordPage, setShowForgotPasswordPage] = useState(false);
+  const [showResetPassword, setShowResetPassword] = useState(false);
+  const [showNextPage2, setShowNextPage2] = useState(false);
 
   useEffect(() => {
     const loadGoogleSDK = () => {
@@ -45,7 +45,6 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
     loadGoogleSDK();
   }, []);
 
-
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwtDecode(response.credential);
@@ -67,7 +66,7 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
     console.log("Registering user:", user);
     setShowRegisterPage(false);
     setShowLoginPage(true); // Show the login page after registering
-}
+  }
 
   function handleLogin(user) {
     console.log("Logging in user:", user);
@@ -75,22 +74,22 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
     setShowLoginPage(false);
   }
 
+  
   function handleBack() {
     setShowLoginPage(false);
     setShowRegisterPage(false);
   }
 
   function handleSubmit() {
-    setUser(false);
     setShowHealthJournal(true);
   }
 
   function handlePredict() {
     setShowPredict(true);
-    setShowPredict(false);
   }
 
   function handleHealthJournal() {
+    setUser(false);
     setShowHealthJournal(true); // Toggle the showHealthJournal state
   }
 
@@ -111,64 +110,56 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
   }
 
   return (
+    <div className="content">
+      {!user && !showRegisterPage && !showLoginPage && (
+        <div className="auth-options">
+          <p>Sign in with your Google account</p>
+          {!showGoogleOptions && (
+            <button onClick={handleSignInClick} className="google-signin">Sign in with Google</button>
+          )}
+          {showGoogleOptions && (
+            <div id="signInDiv"></div>
+          )}
+          <h4>or register to get started</h4>
+          <button onClick={() => setShowRegisterPage(true)} className="register">Sign up</button>
+          <h4>Already have an account?</h4>
+          <button onClick={() => setShowLoginPage(true)} className="login">Sign in</button>
+        </div>
+      )}
 
-      <div className="content">
-        {!user && !showRegisterPage && !showLoginPage && (
-          <div className="auth-options">
-            <p>Sign in with your Google account</p>
-            {!showGoogleOptions && (
-              <button onClick={handleSignInClick} className="google-signin">Sign in with Google</button>
-            )}
-            {showGoogleOptions && (
-              <div id="signInDiv"></div>
-            )}
-            <h4>or register to get started</h4>
-            <button onClick={() => setShowRegisterPage(true)} className="register">Sign up</button>
-            <h4>Already have an account?</h4>
-            <button onClick={() => setShowLoginPage(true)} className="login">Sign in</button>
-          </div>
-        )}
+      {user && (
+        <div className="user-info">
+          <img src={user.picture} alt="User" />
+          <h3>Hello, {user.name}</h3>
+          <p>Email Address: {user.email}</p>
+          <button onClick={handlePredict} className="Predict">Predict</button><br></br>
+          <button onClick={handleHealthJournal} className="Health Journal">Health Journal</button><br></br>
+          <button onClick={handleSignOut} className="signout">Sign out</button><br></br>
+        </div>
+      )}
 
-        {user && (
-          <div className="user-info">
-            <img src={user.picture} alt="User" />
-            <h3>Hello, {user.name}</h3>
-            <p>Email Address: {user.email}</p>
-            <button onClick={handleSignOut} className="signout">Sign out</button><br></br>
-            <button onClick={handleHealthJournal} className="Health Journal">Health Journal</button>
+      {showRegisterPage && (
+        <RegisterPage onRegister={handleRegister} onBack={handleBack} />
+      )}
 
-          </div>
-        )}
+      {showLoginPage && (
+        <LoginPage onLogin={handleLogin} onBack={handleBack}/>
+      )}
 
+      {showHealthJournal && (
+        <HealthJournal onLogin={handleLogin} onSubmit={handleSubmit}/>
+      )}
 
-        {showRegisterPage && (
-          <RegisterPage onRegister={handleRegister} onBack={handleBack} />
-        )}
-
-        {showLoginPage && (
-          <LoginPage onLogin={handleLogin} onBack={handleBack}/>
-        )}
-
-        {showHealthJournal && (
-          <HealthJournal onLogin={handleLogin} onSubmit={handleSubmit}/>
-        )}
-
-        {showPredict && <Predict onSignOut={handlePredict} />}
-
- 
-
-        {showNextPage && <NextPage onNextPage={handleNextPage} />}
+      {showNextPage && <NextPage onNextPage={handleNextPage} />}
         
-        {showNextPage2 && <NextPage2 onNextPage={handleNextPage2} />}
+      {showNextPage2 && <NextPage2 onNextPage={handleNextPage2} />}
 
+      {showPredict && <Predict onSignOut={handlePredict} />}
 
-        {showForgotPasswordPage && <ForgotPasswordPage onNextPage={handleForgotPasswordPage} />}
+      {showForgotPasswordPage && <ForgotPasswordPage onNextPage={handleForgotPasswordPage} />}
 
-        {showResetPassword && <ResetPassword onNextPage={handleResetPassword} />}
-
-
-      </div>
-
+      {showResetPassword && <ResetPassword onNextPage={handleResetPassword} />}
+    </div>
   );
 }
 
