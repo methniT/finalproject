@@ -21,6 +21,11 @@ function HealthJournal({ user }) {
     }
   };
 
+  const handleSignOut = () => {
+    // Your sign out logic goes here
+    console.log('Sign out logic goes here');
+  };
+
   return (
     <div className="health-journal">
       <h2>Health Journal</h2>
@@ -36,6 +41,7 @@ function HealthJournal({ user }) {
         </div>
         <button type="submit">Submit</button>
       </form>
+      <button onClick={handleSignOut} className="signout">Sign out</button>
       {message && <div className="message">{message}</div>}
     </div>
   );

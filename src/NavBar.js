@@ -11,9 +11,9 @@ export default function Navbar() {
       <ul>
         <CustomLink to="/GetStartedPage">Home</CustomLink>
         <CustomLink to="/about">About Us</CustomLink>
-        <CustomLink to="/prediction">Prediction</CustomLink>
         <CustomLink to="/BreastCancerInfoPage">Prevention of Breast Cancer </CustomLink>
-        <CustomLink to="/healthjournal">Health journal</CustomLink>
+        <CustomLink to="/GetStartedPage">Predict </CustomLink>
+        <CustomLink to="/GetStartedPage">Health Journal </CustomLink>
         <CustomLink to="/contact">Contact Us</CustomLink>
       </ul>
     </nav>
@@ -32,4 +32,7 @@ function CustomLink({ to, children, ...props }) {
     </li>
   )
 }
+
+
+
 

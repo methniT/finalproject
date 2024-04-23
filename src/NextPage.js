@@ -1,11 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './BreastCancerInfoPage.css';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 
 const NextPage = () => {
+  const [showNextPage, setShowNextPage] = useState(false); // Added state variable
 
+  
+  function handleNextPage() {
+    setShowNextPage(true); 
+  }
   return (
     <div id="NextPage" className="breast-cancer-info">
     
@@ -33,6 +38,9 @@ const NextPage = () => {
 
         <Link to="/NextPage2">Next Page</Link> {/* Use Link to navigate to the next page */}
       </div>
+
+      {showNextPage && <NextPage onNextPage={handleNextPage} />}
+
     </div>
   );
 };

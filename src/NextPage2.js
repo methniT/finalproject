@@ -1,8 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './BreastCancerInfoPage.css';
 
 const NextPage2 = () => {
+  const [showNextPage2, setShowNextPage2] = useState(false); // Define showNextPage2 state variable
+
+  function handleNextPage2() {
+    setShowNextPage2(true); 
+  }
 
   return (
     <div id="NextPage" className="breast-cancer-info">
@@ -29,6 +34,9 @@ const NextPage2 = () => {
           It's crucial for individuals to be aware of the signs and symptoms of breast cancer and to seek medical attention if any abnormalities are noticed. Additionally, support networks and resources are available for those affected by breast cancer, providing emotional support, education, and advocacy.
         </p>
       </div>
+
+      {showNextPage2 && <NextPage2 onNextPage={handleNextPage2} />}
+
     </div>
   );
 };
