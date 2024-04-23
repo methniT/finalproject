@@ -26,13 +26,13 @@ function App() {
         <Routes>
           <Route path="/GetStartedPage" element={<GetStartedPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/about" element={<About />} />
           <Route path="/predict" element={<Predict />} />
           <Route path="/BreastCancerInfoPage" element={<BreastCancerInfoPage />} />
           <Route path="/healthjournal" element={<HealthJournal />} />
           <Route path="/NextPage" element={<NextPage />} />
           <Route path="/NextPage2" element={<NextPage2 />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} /> {/* Corrected Route */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
         </div> 

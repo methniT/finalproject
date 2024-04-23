@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
 function HealthJournal({ user }) {
   const [healthStatus, setHealthStatus] = useState('');
   const [message, setMessage] = useState('');
+  const [userHealthStatus, setUserHealthStatus] = useState('');
+
+  useEffect(() => {
+    fetchUserHealthStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchUserHealthStatus = async () => {
+    try {
+      const response = await Axios.get(`http://localhost:3001/get-health-status/${user.email}`);
+      setUserHealthStatus(response.data.healthStatus);
+    } catch (error) {
+      console.error('Error fetching user health status:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,14 +36,13 @@ function HealthJournal({ user }) {
     }
   };
 
-  const handleSignOut = () => {
-    // Your sign out logic goes here
-    console.log('Sign out logic goes here');
-  };
-
   return (
     <div className="health-journal">
       <h2>Health Journal</h2>
+      <div className="user-health-status">
+        <h3>Your Health Status:</h3>
+        <p>{userHealthStatus}</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <textarea
@@ -41,7 +55,6 @@ function HealthJournal({ user }) {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <button onClick={handleSignOut} className="signout">Sign out</button>
       {message && <div className="message">{message}</div>}
     </div>
   );

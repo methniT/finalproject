@@ -51,6 +51,27 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
     console.log("Decoded User Object: ", userObject);
     setUser(userObject);
     setShowGoogleOptions(false);
+  
+    // Send user data to backend for registration
+    fetch('http://localhost:3001/register-google', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: userObject.name,
+        email: userObject.email,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Registration response:', data);
+      setUser(userObject);
+      setShowGoogleOptions(false);
+    })
+    .catch(error => {
+      console.error('Error registering user:', error);
+    });
   }
 
   function handleSignOut() {
@@ -70,7 +91,7 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
 
   function handleLogin(user) {
     console.log("Logging in user:", user);
-    setUser(user);
+    setUser(user); // Set user data in the state
     setShowLoginPage(false);
   }
 
@@ -112,7 +133,7 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
   return (
     <div className="content">
       {!user && !showRegisterPage && !showLoginPage && (
-        <div className="auth-options">
+        <div className="register-google">
           <p>Sign in with your Google account</p>
           {!showGoogleOptions && (
             <button onClick={handleSignInClick} className="google-signin">Sign in with Google</button>
@@ -129,7 +150,6 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
 
       {user && (
         <div className="user-info">
-          <img src={user.picture} alt="User" />
           <h3>Hello, {user.name}</h3>
           <p>Email Address: {user.email}</p>
           <button onClick={handlePredict} className="Predict">Predict</button><br></br>
@@ -137,6 +157,8 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
           <button onClick={handleSignOut} className="signout">Sign out</button><br></br>
         </div>
       )}
+
+      
 
       {showRegisterPage && (
         <RegisterPage onRegister={handleRegister} onBack={handleBack} />

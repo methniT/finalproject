@@ -18,7 +18,12 @@ function LoginPage({ onLogin, onBack }) {
         password: password,
       });
       console.log(response.data); // Log response data
-      onLogin(response.data); // Call onLogin function with response data
+      const user = {
+        ...response.data,
+        
+        email: email, // Include the email address in the user object
+      };
+      onLogin(user); // Call onLogin function with updated user object
     } catch (error) {
       console.error('Error during login:', error);
       setError('Invalid credentials'); // Set error message if login fails
