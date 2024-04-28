@@ -7,16 +7,15 @@
   padding: 20px;
   height: 100vh; /* Set to full viewport height */
   background-image: url('images/bg4.jpg'); /* Path to your background image */
-  background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* No repeating of the image */
+  background-repeat: repeat; /* Repeat the background image */
   color: rgb(0, 0, 0); /* Text color for better visibility */
   font-family: 'Roboto', sans-serif; /* Choose a font */
 }
 
 /* Content Box */
 .content {
-  max-width: 400px;
+  max-width: 1000px;
   padding: 20px;
   background: rgba(110, 110, 110, 0.5); /* Semi-transparent white background */
   border-radius: 10px;

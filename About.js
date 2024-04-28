@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <div className="content-box">
-        <h1>About Us</h1><br></br>
+        <h1>About Us</h1>
         <p>BLISSMED is a healthcare technology company committed to transforming the 
           landscape of healthcare through cutting-edge predictive analytics. Our mission 
           is to empower individuals to proactively manage their health and well-being by
@@ -16,13 +16,6 @@ const AboutPage = () => {
           way healthcare is delivered, shifting the focus from reactive treatment to proactive 
           prevention. Our advanced algorithms analyze vast amounts of data to identify potential 
           health risks and predict future health outcomes with unprecedented accuracy.</p>
-
-        <p>We understand that each individual is unique, and our personalized approach to 
-          healthcare reflects this belief. Through our platform, users can access personalized 
-          health recommendations and actionable insights tailored to their specific needs and 
-          goals. Whether it's monitoring chronic conditions, optimizing fitness routines, or 
-          managing lifestyle factors, BLISSMED provides the tools and resources needed to make 
-          informed decisions about health and wellness.</p>  
 
          <p>In addition to empowering individuals, BLISSMED is dedicated to advancing research 
           and innovation in the field of healthcare. We collaborate with leading experts and 
