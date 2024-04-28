@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 
-function ContactUs() {
+function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,4 +52,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default Contact;
