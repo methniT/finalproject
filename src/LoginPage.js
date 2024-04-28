@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 function LoginPage({ onLogin, onBack }) {
+  // State variables
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,7 +20,6 @@ function LoginPage({ onLogin, onBack }) {
       console.log(response.data); // Log response data
       const user = {
         ...response.data,
-        
         email: email, // Include the email address in the user object
       };
       onLogin(user); // Call onLogin function with updated user object
@@ -71,7 +70,7 @@ function LoginPage({ onLogin, onBack }) {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div><br></br>
+        </div>
         <div className="form-group">
           <input
             type="password"
@@ -80,8 +79,8 @@ function LoginPage({ onLogin, onBack }) {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div><br></br>
-        {error && <div className="error">{error}</div>} {/* Display error message */}
+        </div>
+        {error && <div className="error">{error}</div>}
         <div className="remember-forgot">
           <label>
             <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} /> Remember me
@@ -89,11 +88,10 @@ function LoginPage({ onLogin, onBack }) {
           <Link to="/forgot-password"><p>Forgot Password?</p></Link>
         </div>
         <div className="buttons">
-          <button type="submit">Sign in</button><br></br>
+          <button type="submit">Sign in</button>
           <button type="button" onClick={onBack}>Back</button>
         </div>
       </form>
-
     </div>
   );
 }

@@ -12,9 +12,11 @@ export default function Navbar() {
         <CustomLink to="/GetStartedPage">Home</CustomLink>
         <CustomLink to="/about">About Us</CustomLink>
         <CustomLink to="/BreastCancerInfoPage">Prevention of Breast Cancer </CustomLink>
-        <CustomLink to="/GetStartedPage">Predict </CustomLink>
-        <CustomLink to="/GetStartedPage">Health Journal </CustomLink>
+        <CustomLink to="/predictpage">Predict </CustomLink>
+        <CustomLink to="/healthjournal">Health Journal </CustomLink>
         <CustomLink to="/contact">Contact Us</CustomLink>
+        <CustomLink to="/admin">Administration</CustomLink>
+        
       </ul>
     </nav>
   )
