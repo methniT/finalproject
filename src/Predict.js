@@ -1,13 +1,10 @@
-// Predict.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Predict.css'; 
 
-
 function Predict() {
-    const [prediction, setPrediction] = useState('');
-      const [errorMessage, setErrorMessage] = useState('');
-
+    const [email, setEmail] = useState('');
+    const [emailSent, setEmailSent] = useState(false); // Define emailSent state variable
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,8 +12,18 @@ function Predict() {
         const data = Object.fromEntries(formData.entries());
 
         try {
+            // Make a POST request to send prediction data to the backend
             const response = await axios.post('http://localhost:5000/predict', data);
-            setPrediction(response.data.prediction === 1 ? 'The patient has deadly breast cancer - M type cancer.' : 'The patient has preventable breast cancer - B type cancer');
+            const predictionResult = response.data.prediction === 1 ? 'Deadly breast cancer - M (Malignant) type cancer.' : 'Preventable breast cancer - B (Benign) type cancer';
+
+            // After receiving the prediction result, send an email with the prediction to the specified email address
+            await axios.post('http://localhost:3001/predict', {
+                email: email,
+                prediction: predictionResult
+            });
+
+            // Update the emailSent state to true after successful email sending
+            setEmailSent(true);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -25,9 +32,10 @@ function Predict() {
     const handleClear = (e) => {
         e.preventDefault();
         document.querySelectorAll('input').forEach(input => input.value = '');
-        setPrediction('');
-        setErrorMessage(''); // Clear error message when clearing form
+    };
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     return (
@@ -36,6 +44,10 @@ function Predict() {
             <p>Fill out the following fields with details from the cancerous cells report</p>
             <p>All the details are about the cancerous cells</p>
             <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" value={email} onChange={handleEmailChange} required />
+                </div>
                 <div className="form-group">
                     <label htmlFor="radius_mean">Mean Radius</label>
                     <input type="number" name="radius_mean" step="0.1" min="6.0" max="29.0" required />
@@ -57,7 +69,7 @@ function Predict() {
                     <input type="number" name="area_se" step="0.1" min="0.6" max="543.0" required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="radius_worst">Worst Radiu</label>
+                    <label htmlFor="radius_worst">Worst Radius</label>
                     <input type="number" name="radius_worst" step="0.1" min="7.0" max="37.0" required />
                 </div>
                 <div className="form-group">
@@ -72,15 +84,15 @@ function Predict() {
                     <label htmlFor="area_worst">Worst Area</label>
                     <input type="number" name="area_worst" step="0.1" min="185.0" max="4254.0" required />
                 </div>
+
                 <button type="submit">Predict</button>
                 <button onClick={handleClear}>Clear</button>
             </form>
             <div className="prediction-result">
-                {prediction && <p>{prediction}</p>}
+                {/* Display email sent message if email was sent successfully */}
+                {emailSent && <div className="email-sent-message">Email has been sent! Check your email for the prediction result.</div>}
             </div>
-
         </div>
-        
     );
 }
 

@@ -52,11 +52,5 @@ button[type="submit"]:hover, button[type="button"]:hover {
   background-color: #a53275; /* Darker purple on hover */
 }
 
-.prediction-result {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #fff; /* White background color */
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
-}
+
 

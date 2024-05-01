@@ -11,7 +11,7 @@ import NextPage2 from './NextPage2';
 import Predict from './Predict';
 import ForgotPasswordPage from "./ForgotPasswordPage";
 import ResetPassword from "./ResetPassword";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HealthJournalPage from './HealthJournalPage';
 import Predictpage from './Predictpage'; // Import the PredictPage component
 import AdminDashboard from './AdminDashboard'; // Import the AdminDashboard component
