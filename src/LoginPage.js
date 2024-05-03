@@ -8,6 +8,7 @@ function LoginPage({ onLogin, onBack }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [loginStatus, setLoginStatus] = useState('');
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -23,9 +24,12 @@ function LoginPage({ onLogin, onBack }) {
         email: email, // Include the email address in the user object
       };
       onLogin(user); // Call onLogin function with updated user object
+      setLoginStatus('Login successful'); // Set login status message
+      setError(''); // Clear error message if present
     } catch (error) {
       console.error('Error during login:', error);
       setError('Invalid credentials'); // Set error message if login fails
+      setLoginStatus('Login failed'); // Set login status message
     }
   };
 
@@ -58,6 +62,15 @@ function LoginPage({ onLogin, onBack }) {
     }
   }, [rememberMe, email, password]);
 
+  // Effect to clear login status after 3 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoginStatus('');
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [loginStatus]);
+
   return (
     <div className="loginpage">
       <h2>Sign in Page</h2>
@@ -81,6 +94,7 @@ function LoginPage({ onLogin, onBack }) {
           />
         </div>
         {error && <div className="error">{error}</div>}
+        {loginStatus && <div className="login-status">{loginStatus}</div>}
         <div className="remember-forgot">
           <label>
             <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} /> Remember me

@@ -10,8 +10,6 @@ import ForgotPasswordPage from "./ForgotPasswordPage";
 import ResetPassword from "./ResetPassword";
 import NextPage from './NextPage';
 
-
-
 function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
   const [user, setUser] = useState(null);
   const [showGoogleOptions, setShowGoogleOptions] = useState(false);
@@ -157,8 +155,6 @@ function GetStartedPage({ onGoogleSDKLoad, onRegisterClick }) {
           <button onClick={handleSignOut} className="signout">Sign out</button><br></br>
         </div>
       )}
-
-      
 
       {showRegisterPage && (
         <RegisterPage onRegister={handleRegister} onBack={handleBack} />
