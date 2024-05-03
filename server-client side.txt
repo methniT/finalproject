@@ -1,0 +1,27 @@
+prediction 
+
+server side
+1 cd src\flask-server (go to the server folder)
+2 pip install flask
+3 python -m venv venv (setup a vertual environment)
+4 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+5 .\venv\Scripts\Activate.ps1 (activate the virtual environment)
+6 python server.py (run python file)
+
+
+client side
+1 npm start (run js file)
+
+
+*********************************************************************************************
+
+
+register page
+
+server side
+1 cd server
+2 node index.js
+
+
+client side
+1 npm start
